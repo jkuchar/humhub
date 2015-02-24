@@ -64,6 +64,8 @@ class EMailing extends HConsoleCommand {
                 continue;
             }
 
+            if(empty($user->email)) continue;
+
             $message = new HMailMessage();
             $message->view = 'application.views.mail.EMailing';
             $message->addFrom(HSetting::Get('systemEmailAddress', 'mailing'), HSetting::Get('systemEmailName', 'mailing'));
